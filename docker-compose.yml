@@ -1,0 +1,39 @@
+services:
+  django:
+    build:
+      context: ./server  # Where your Django Dockerfile is
+      dockerfile: DockerfileServer
+    container_name: django_server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/app  # optional for local dev
+    depends_on:
+      - db
+
+  client:
+    build:
+      context: ./client # Where your React Dockerfile is
+      dockerfile: DockerfileClient
+    container_name: client-1
+    # For an Nginx-based React image, we might do:
+    ports:
+      - "3000:80"  # If your container runs on port 80
+    depends_on:
+      - django
+    # Or if using dev server with "npm start", you'd do "3000:3000"
+
+  db:
+    image: postgres:14-alpine
+    container_name: db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: timetablingdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
