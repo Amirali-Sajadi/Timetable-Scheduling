@@ -2,7 +2,7 @@ services:
   django:
     build:
       context: ./server  # Where your Django Dockerfile is
-      dockerfile: DockerfileServer
+      dockerfile: Dockerfile
     container_name: django_server
     ports:
       - "8000:8000"
@@ -14,7 +14,7 @@ services:
   client:
     build:
       context: ./client # Where your React Dockerfile is
-      dockerfile: DockerfileClient
+      dockerfile: Dockerfile
     container_name: client-1
     # For an Nginx-based React image, we might do:
     ports:

@@ -1,0 +1,41 @@
+/* FormPage.module.css */
+.formContainer {
+    max-width: 400px; 
+    margin: 3rem auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .formTitle {
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .inputField {
+    margin-bottom: 1rem;
+  }
+  
+  .actionButtons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .linkButton {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .linkButton button {
+    font-size: 0.9rem;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+  }
+  
